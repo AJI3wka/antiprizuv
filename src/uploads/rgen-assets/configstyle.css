@@ -46,9 +46,8 @@ font-size: 16px;
  #page [data-rgen-id="rgcRT"] input,.arcticmodal-container [data-rgen-id="rgcRT"] input {
 	margin-right: 10px;
 	position: relative;
-	top: -1px;
-
- }
+	top: 0px;
+	}
  #page [data-rgen-id="rgcRT"] label,.arcticmodal-container [data-rgen-id="rgcRT"] label{
  	position: absolute;
  	top:100%;

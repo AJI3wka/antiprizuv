@@ -10,6 +10,8 @@
 	<!--pageMeta-->
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter48220235 = new Ya.Metrika({ id:48220235, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/48220235" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 	<!-- Lib CSS -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 	<link href="minify/rgen_min.css" rel="stylesheet">
 	<link href="css/themes/theme-04.css" id="theme-css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
@@ -839,44 +841,25 @@
 	<!--=================================
 	= Contact form
 	==================================-->
-	<div class="container small pd-t-70 align-c typo-light" id="zvonok" data-rgen-sm="pd-tb-small">
-		<!-- form-block -->
-		<div class="form-block max-px-w600 mr-auto">
-			<h2 class="title mr-b-40" data-rgen-sm="medium" data-rgen-id="rg4ow">Закажите обратный звонок!</h2>
-            <p class="title-sub" data-rgen-sm="small">Наш специалист перезвонит Вам и ответит на все вопросы.</p>
-			<form action="form-data/formdata.php" class="form-widget" novalidate="novalidate">
-				<div class="field-wrp" data-rgen-id="rgBtc">
-					<input name="to" value="info@stop-army.ru" type="hidden">
+	 <div class="newsec">
+	 	<h2 class="newh2">Как законно получить военный билет?</h2>
+	 	<p class="newp">Закажи обратный звонок! Наш специалист перезвонит и ответит на все твои вопросы</p>
+	 	<form action="ajax/mail.php" method="post" class="newform">
+	 		<input class="newinput" type="text" name="name" placeholder="Имя">
+	 		<input class="newinput" type="text" name="phone" placeholder="Телефон">
+	 		<input type="hidden" name="frmid" value="Форма">
+	 		<button class="newbutton">Заказать бесплатную консультацию</button>
+	 		<div class="check">
+	 			<div class="checkbox active"></div>
+	 		<p class="checkp">Я согласен с условиями обработки 
+	 			<a href="">Персональных данных</a>
+	 		</p>
+	 	</div>
+	 	</form>
+	 	
+	 </div>
 
-					<div class="flex-row gt10">
-						<div class="flex-col-md-6">
-							<div class="form-group">
-								<input class="form-control form-control-light" data-label="Имя" required="required" data-msg="Пожалуйста, введите Ваше имя" name="name" placeholder="Введите Ваше имя" aria-required="true" data-rgen-id="rgHAD" value="" type="text">
-							</div>
-						</div><!-- // END : column //  -->
-						
-						<div class="flex-col-md-6">
-							<div class="form-group">
-								<input class="form-control form-control-light" data-label="Email" required="required" data-msg="Пожалуйста, введите email." name="email" placeholder="Введите email" aria-required="true" data-rgen-id="rgx2l" value="" type="email">
-							</div>
-						</div><!-- // END : column //  -->
-					</div><!-- // END : row //  -->
-					
-					<div class="form-group">
-						<input class="form-control form-control-light" required="required" data-label="Телефон" data-msg="Пожалуйста, введите Ваш телефон" name="phone" placeholder="Введите Ваш телефон" aria-required="true" data-rgen-id="rgdAI" value="" type="text">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control form-control-light" data-label="Сообщение" required="required" data-msg="Оставьте Ваше сообщение" name="message" placeholder="Оставьте Ваше сообщение или вопрос" cols="30" rows="10" aria-required="true" data-rgen-id="rgAeQ" value=""></textarea>
-					</div>
-				</div>
-				<button type="submit" class="btn solid btn-secondary hov-btn-white" disabled="disabled"><i class="fa fa-envelope-o"></i> ЗАКАЗАТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ</button>				
-				<p class="title-sub" data-rgen-sm="small" data-rgen-id="rgcRT">
-					<input id="checkBox" name="check" data-label="Сообщение" required="required" type="checkbox" data-msg="Отметьте это поле">
-					<span>Оставляя заявку на сайте, я соглашаюсь с <a href="http://stop-army.ru/lp/politika-konf.html" target="_blank" rel="nofollow" class="">Политикой конфиденциальности</a></span>
-				</p>
-			</form><!-- / form -->
-		</div><!-- / form block -->
-	</div><!-- // END : Container //  -->
+
 	</section>
 <!-- ************** END : Contact form **************  --><!-- 02 ======== -->
 <!--
@@ -974,6 +957,8 @@ var fgroup = [
 <script src="minify/rgen_min.js"></script>
 <script async="" src="js/rgen.js"></script>
 <script src="js/jquery.arcticmodal.min.js"></script>
+<script src="js/jquery.maskedinput.min.js"></script>
+<script src="js/main.js"></script>
 
 <!-- Скрипт обратного звонка --> 
 	<script>
