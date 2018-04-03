@@ -26012,12 +26012,13 @@ body>.spinner-wrp {
 @media (min-width:480px) and (max-width:599px) {}
 
 @media (min-width:200px) and (max-width:479px) {}
+
 .newsec{
 	width: 100%;
 	background-color: red;
 	position: relative;
 	padding-top: 84px;
-	height: 446px;
+	padding-bottom: 47px;
 }
 .newsec #maket{
 	display: block;
@@ -26039,40 +26040,116 @@ body>.spinner-wrp {
 }
 .newsec p.newp{text-align: center;color: white;max-width: 416px;margin: 32px auto 0;font-size: 15px;line-height: 30px;}
 .newsec .newform{display: block;font-size: 0;text-align: center;margin-top: 29px;font-size: 17px;}
-.newsec .newform input.newinput{
+.newsec .newform .newinput-wrap{
+	display: inline-block;
+	width: 296px;
+	margin: 0 5px;
+	position:relative;
+	vertical-align: top;
 }
+.newsec .newform .newinput-wrap.error-input ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: red;
+}
+.newsec .newform .newinput-wrap.error-input ::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+}
+.newsec .newform .newinput-wrap.error-input :-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+.newsec .newform .newinput-wrap.error-input :-moz-placeholder { /* Firefox 18- */
+  color: red;
+}
+.newsec .newform .newinput-wrap.error-input span.cross{
+    display:block;
+}
+.newsec .newform .newinput-wrap.error-input span.txt{
+    display:block;
+}
+.newsec .newform .newinput-wrap span.txt{color: white;position: absolute;font-size: 14px;left: 0;top: 80px;display: none;}
+.newsec .newform .newinput-wrap span.cross{
+
+}
+
+
+.newsec .newform .newinput-wrap span.cross {
+	position:absolute;
+	z-index:2;
+	width:32px;
+	height:32px;
+	right:16px;
+	top:24px;
+	cursor:pointer;
+	-webkit-transition:opacity .4s;
+	-o-transition:opacity .4s;
+	transition:opacity .4s;
+	display:none;
+}
+
+.newsec .newform .newinput-wrap span.cross:before,
+.newsec .newform .newinput-wrap span.cross:after {
+	display:block;
+	position:absolute;
+	content:'';
+	width:100%;
+	height:2px;
+	left:0;
+	top:15px;
+	background:#e31010;
+}
+
+.newsec .newform .newinput-wrap span.cross:before {
+	-webkit-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+
+.newsec .newform .newinput-wrap span.cross:after {
+	-webkit-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+
+.newsec .newform .newinput-wrap span.cross:hover {
+	opacity:.5;
+}
+
 .newsec .newform input.newinput,.newsec .newform button.newbutton{
 	display: inline-block;
 	width: 296px;
 	height: 80px;
-	margin: 0 5px;
 	border: none;
-	padding-left: 35px;
+	padding: 0 35px;
+	vertical-align: top;
 	font-size: 16px;
+	margin-bottom: 30px;
 }
 .newsec .newform button.newbutton{
 	width: 342px;
 	text-transform:uppercase;
 	font-size: 15px;
-	padding-left: 8px;
 	font-weight: 700;
+	margin: 0 5px;
+	padding: 0;
+	background: #c3c3c3;
 }
-.newsec .newform .check{
-
+.newsec .newform button.newbutton.active{
+    background-color:black;
+    color:white;
 }
+.newsec .newform .check{cursor: pointer;}
 
 .newsec .newform .check .checkbox.active{
     background-image: url(../images/icon-check.png);
 }
-.newsec .newform .check .checkbox{display: inline-block;height: 30px;width: 30px;position: absolute;display: inline-block;height: 29px;width: 29px;position: absolute;margin-left: -40px;margin-top: 21px;/* background-image: url(../images/icon-check.png); */background-size: 15px;background-repeat: no-repeat;border: 1px solid white;cursor: pointer;background-position: 6px 7px;}
-.newsec .newform .check p.checkp{
+.newsec .newform .check .checkbox{display: inline-block;height: 30px;width: 30px;/* position: absolute; */display: inline-block;height: 29px;width: 29px;vertical-align: top;/* position: absolute; *//* margin-left: -40px; *//* margin-top: 19px; */margin: 0;margin-right: 10px;/* background-image: url(../images/icon-check.png); */background-size: 15px;background-repeat: no-repeat;border: 1px solid white;cursor: pointer;background-position: 6px 7px;}
+.newsec .newform .check .checkp{
 font-size: 19px;
 color: white;
 text-align: center;
 display: inline-block;
 margin-top: 20px;
 }
-.newsec .newform .check  p.checkp a{
+.newsec .newform .check  .checkp a{
     text-decoration: underline;
 }
 #contact.pd-tb-small{
@@ -26082,10 +26159,18 @@ margin-top: 20px;
 	display: block;
 }
 
+@media (max-width:990px){
+
+.newsec .newform button.newbutton{display: block;margin: 0 auto;width: 296px;font-size: 12px;}
+.newsec .newform .newinput-wrap{
+    display: block;
+    margin: 0 auto;
+}
+}
 .arcticmodal-container,.arcticmodal-overlay{position:fixed;left:0;top:0;right:0;bottom:0;z-index:1000}
 .arcticmodal-container{overflow:auto;margin:0;padding:0;border:0;border-collapse:collapse;}
 :first-child+html .arcticmodal-container{height:100%}
 .arcticmodal-container_i{margin:0 auto;height:100%;}
 .arcticmodal-container_i2{padding:0;margin:0;border:0;vertical-align:middle}
 #hidden-box{display:none;}
-.error-input{border: 1px solid red}
+.error-input{bord

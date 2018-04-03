@@ -612,7 +612,7 @@ Copyright 2015-2017 R.Genesis.Art
 				rgen.global_validation.successMsg = rgen.global_validation.form_successMsg;
 			};
 
-			rgen.contactForm($form, $form.serializeObject(), validate_data);
+			rgen.contactForm($form, $form.serialize(), validate_data);
 			return false;
 		});
 	}

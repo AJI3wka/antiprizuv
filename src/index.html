@@ -845,16 +845,31 @@
 	 	<h2 class="newh2">Как законно получить военный билет?</h2>
 	 	<p class="newp">Закажи обратный звонок! Наш специалист перезвонит и ответит на все твои вопросы</p>
 	 	<form action="ajax/mail.php" method="post" class="newform">
-	 		<input class="newinput" type="text" name="name" placeholder="Имя">
-	 		<input class="newinput" type="text" name="phone" placeholder="Телефон">
-	 		<input type="hidden" name="frmid" value="Форма">
+	 		<div class="newinput-wrap">
+	 			<input class="newinput" type="text" name="name" placeholder="Имя">
+	 			
+	 		</div>
+	 		<div class="newinput-wrap">
+
+	 			<input class="newinput" type="text" name="phone" placeholder="Телефон*">
+	 			<span class="cross"></span>
+	 			<span class="txt">Обязательное поле</span>
+	 		</div>
+
+	 		<input type="hidden" name="frmid" value="Форма в снизу сайта">
+
 	 		<button class="newbutton">Заказать бесплатную консультацию</button>
+
+
 	 		<div class="check">
-	 			<div class="checkbox active"></div>
-	 		<p class="checkp">Я согласен с условиями обработки 
-	 			<a href="">Персональных данных</a>
-	 		</p>
-	 	</div>
+		 		
+		 		<div class="checkp">
+		 			<div class="checkbox"></div>
+		 			Я согласен с условиями обработки 
+		 			<a href="privacy.html">Персональных данных</a>
+		 		</div>
+
+	 		</div>
 	 	</form>
 	 	
 	 </div>
@@ -896,9 +911,9 @@
 			<div class="close"></div>
 			<h2 class="title mr-b-40" data-rgen-sm="medium" data-rgen-id="rg4ow">Закажите обратный звонок!</h2>
             <p class="title-sub" data-rgen-sm="small">Наш специалист перезвонит Вам и ответит на все вопросы.</p>
-			<form action="form-data/formdata.php" class="form-widget" novalidate="novalidate">
+			<form action="ajax/mail.php" class="form-widget" novalidate="novalidate">
 				<div class="field-wrp" data-rgen-id="rgBtc">
-					<input name="to" value="info@stop-army.ru" type="hidden">
+					<input name="frmid" value="Заказ звонка" type="hidden">
 
 					<div class="flex-row gt10">
 						<div class="flex-col-md-6">

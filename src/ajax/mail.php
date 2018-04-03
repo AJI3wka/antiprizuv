@@ -2,6 +2,8 @@
 $frm = $_POST['frmid'];
 $name = $_POST['name'];
 $phone = $_POST['phone'];
+$email = $_POST['email'];
+$mess = $_POST['message'];
 
 $utm_source = $_POST['utm_source'];
 $utm_medium = $_POST['utm_medium'];
@@ -27,11 +29,20 @@ $headers.= "MIME-Version: 1.0" . "\r\n";
 $headers.= "Content-type: text/plain; charset=utf-8\r\n";
 
 $to = "info@stop-army.ru";
+$to = "triowork2@gmail.com";
 
 $message = "Форма: $frm\n\n";
 $message .= "Имя: $name\n";
-$message .= "Телефон: $phone\n\n";
-$message .= "Источник: $utm_source\n";
+$message .= "Телефон: $phone\n";
+if(isset($_POST['email'])){
+$message .= "Email: $email\n";
+
+}
+if(isset($_POST['message'])){
+$message .= "Сообщение: $mess\n";
+	
+}
+$message .= "\nИсточник: $utm_source\n";
 $message .= "Тип источника: $utm_medium\n";
 $message .= "Кампания: $utm_campaign\n";
 $message .= "Ключевое слово: $utm_term\n";
@@ -46,8 +57,5 @@ $message .= "Гео-положение отправителя: $location\n\n";
 $message .= "Ссылка на сайт: $url\n";
 $message .= "Заголовок: $title\n\n";
 
-mail ($to,$subject,$message,$headers);
-
-$to = "info@stop-army.ru";
 mail ($to,$subject,$message,$headers);
 ?>

@@ -11,65 +11,75 @@ function getURLParameter(name) {return decodeURIComponent((new RegExp('[?|&]' + 
     
 $(document).ready(function($) {
 
-  $('input[name="phone"]').mask('+7 (999) 999-99-99');
-    $('input[name="phone"]').blur(function() {if($(this).val().length != 18) {$(this).addClass('error-input');}});
-  $('input[name="phone"]').focus(function() {$(this).removeClass('error-input');});
+  $('form.newform input[name="phone"]').mask('9-999-999-99-99');
+    $('form.newform input[name="phone"]').blur(function() {
+        if($(this).val().length != 15) {
+            $(this).parent().addClass('error-input');
+        }
+    });
+  
+  $('form.newform input[name="phone"]').focus(function() {
+    $(this).parent().removeClass('error-input');
+  });
+
+  $('form.newform span.cross').click(function(event) {
+        $(this).closest('.newinput-wrap').removeClass('error-input');
+
+  });
+
   $.get("http://ipinfo.io", function(response) {geo_url='http://ipgeobase.ru:7020/geo?ip='+response.ip; run_geo(geo_url);}, "jsonp");
     utm=[];$.each(["utm_source","utm_medium","utm_campaign","utm_term",'source_type','source','position_type','position','added','creative','matchtype'],function(i,v){$('<input type="hidden" />').attr({name: v, class: v, value: function(){if(getURLParameter(v) == undefined)return '-'; else return getURLParameter(v)}}).appendTo("form")});
     $('<input type="hidden" />').attr({name: 'url', value: document.location.href}).appendTo("form");
     $('<input type="hidden" />').attr({name: 'title', value: document.title}).appendTo("form");
     
-    $('.checkbox').click(function() {
+    $('.newsec .check').click(function() {
 
-    	$(this).toggleClass('active');
+
+
+        if($(this).find('.checkbox').hasClass('active')){
+
+            $(this).find('.checkbox').removeClass('active');
+            $('button.newbutton').removeClass('active');
+        
+        }else{
+        
+            $(this).find('.checkbox').addClass('active');
+            $('button.newbutton').addClass('active');
+        
+          
+        }
+
     });
 
-    	if($(this)){
-    		.delegate('newbutton'.click(function)change.css("backgroundColor","#green"))))
-
-    	}else{
-    		.undelegate('newbutton')
-    		});
-
-    	}
-
-    });
 
     	
     
 
-$('form').submit(function(e){
+    $('form.newform').submit(function(e){
         e.preventDefault();
-        $(this).find('input[type="text"]').trigger('blur');
-        if(!$(this).find('input[type="text"]').hasClass('error-input')){
-            var type=$(this).attr('method');
-            var url=$(this).attr('action');
-            var data=$(this).serialize();
-            var track_event=$(this).find('input[name="event"]').val();
-            $.ajax({type: type, url: url, data: data,
-                success : function(){
-                    $.arcticmodal('close');$('#form-block max-px-w600 mr-auto').arcticmodal();
-                    //submit_track_event(track_event);
-                }
-            }); 
-        }else{
 
-            var eror_pop_text = '';
+        if ($(this).find('.newbutton').hasClass('active')) {            
 
-            if ($(this).find('input[name="name"]').hasClass('error-input') && !$(this).find('input[name="phone"]').hasClass('error-input')) {
-                eror_pop_text = 'Пожалуйста введите имя';
-            } else
+            $(this).find('input[type="text"]').trigger('blur');
+            if($(this).find('.error-input').length == 0){
+                var type=$(this).attr('method');
+                var url=$(this).attr('action');
+                var data=$(this).serialize();
+                $.ajax({type: type, url: url, data: data,
+                    success : function(){
 
-            if($(this).find('input[name="phone"]').hasClass('error-input') && !$(this).find('input[name="name"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите телефон';
-            }else
+                        swal({
+                            type: "success",
+                            title: "Успешно!",
+                            text: "Спасибо за Ваше обращение! Наши специалисты скоро с Вами свяжутся."
+                        }, function () {
+                        });                        
 
-            if($(this).find('input[name="phone"]').hasClass('error-input') && $(this).find('input[name="name"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите имя и телефон';
+                        // $.arcticmodal('close');$('#form-block max-px-w600 mr-auto').arcticmodal();
+                        //submit_track_event(track_event);
+                    }
+                }); 
             }
-
-            $('#form-error-text').html(eror_pop_text)
-            $('#form-error-pop').arcticmodal();
         }
     });
   
